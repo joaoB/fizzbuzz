@@ -16,4 +16,9 @@ class MessagesSpec extends FlatSpec with Matchers {
     Messages.fizzbuzz should be ("fizzbuzz")
   }
 
+  "Messages.lucky" should "‘lucky’" in {
+    Messages.lucky should be ("lucky")
+  }
+
+
 }

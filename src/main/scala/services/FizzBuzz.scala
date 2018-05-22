@@ -4,6 +4,7 @@ object Messages {
   val fizz = "fizz"
   val buzz = "buzz"
   val fizzbuzz = "fizzbuzz"
+  val lucky = "lucky"
 }
 
 trait FizzBuzz {
@@ -21,5 +22,14 @@ trait FizzBuzz {
   }
 
   def translate(start : Int = 1, end : Int = 20) : List[String] = (start to end).toList map translate
+
+}
+
+trait Lucky extends FizzBuzz {
+  override def translate(index: Int) : String =
+    if (index.toString.contains("3"))
+      Messages.lucky
+  else
+    super.translate(index)
 
 }
