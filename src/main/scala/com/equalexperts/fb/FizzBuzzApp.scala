@@ -1,6 +1,4 @@
-package app
-
-import services.{FizzBuzz, Lucky, Report}
+package com.equalexperts.fb
 
 object FizzBuzzApp extends App {
 

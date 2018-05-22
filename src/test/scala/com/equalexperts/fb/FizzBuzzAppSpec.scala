@@ -1,6 +1,5 @@
-package services.app
+package com.equalexperts.fb
 
-import app.FizzBuzzApp
 import org.scalatest.{FlatSpec, Matchers}
 
 class FizzBuzzAppSpec extends FlatSpec with Matchers {
