@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+exec sbt clean compile test run
