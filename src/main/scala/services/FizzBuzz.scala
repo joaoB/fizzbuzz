@@ -5,6 +5,7 @@ object Messages {
   val buzz = "buzz"
   val fizzbuzz = "fizzbuzz"
   val lucky = "lucky"
+  val integer = "integer"
 }
 
 trait FizzBuzz {
@@ -31,5 +32,30 @@ trait Lucky extends FizzBuzz {
       Messages.lucky
   else
     super.translate(index)
+
+}
+
+trait Report extends FizzBuzz {
+
+  case class Report(fizz: Int = 0, buzz: Int = 0, fizzBuzz : Int = 0, lucky: Int = 0, integer: Int = 0) {
+    override def toString: String =
+      s"${Messages.fizz}: $fizz " +
+        s"${Messages.buzz}: $buzz " +
+        s"${Messages.fizzbuzz}: $fizzBuzz " +
+        s"${Messages.lucky}: $lucky " +
+        s"${Messages.integer}: $integer"
+  }
+
+  override def translate(start : Int = 1, end : Int = 20) : List[String] = {
+    val translated = super.translate(start, end)
+    val r = translated.foldLeft(Report()) {
+      case (acc, Messages.fizz)     => acc.copy(fizz = acc.fizz + 1)
+      case (acc, Messages.buzz)     => acc.copy(buzz = acc.buzz + 1)
+      case (acc, Messages.fizzbuzz) => acc.copy(fizzBuzz = acc.fizzBuzz + 1)
+      case (acc, Messages.lucky)    => acc.copy(lucky = acc.lucky + 1)
+      case (acc, _)                 => acc.copy(integer = acc.integer + 1)
+    }
+    translated :+ r.toString
+  }
 
 }

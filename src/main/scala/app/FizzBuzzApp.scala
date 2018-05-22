@@ -1,6 +1,6 @@
 package app
 
-import services.{FizzBuzz, Lucky}
+import services.{FizzBuzz, Lucky, Report}
 
 object FizzBuzzApp extends App {
 
@@ -16,5 +16,11 @@ object FizzBuzzApp extends App {
   println(step2.translate().mkString(" "))
   println("=" * 25)
 
+
+  lazy val step3 = new FizzBuzz with Lucky with Report
+  println("Step 3:")
+  println("Running the program with a range from 1-20")
+  println(step3.translate().mkString(" "))
+  println("=" * 25)
 
 }
