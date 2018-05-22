@@ -1,4 +1,4 @@
-package services
+package com.equalexperts.fb
 
 object Messages {
   val fizz = "fizz"
